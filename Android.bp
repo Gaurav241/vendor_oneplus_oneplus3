@@ -39,6 +39,39 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+	name: "vendor.qti.hardware.audiohalext-utils",
+	owner: "oneplus",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/lib/vendor.qti.hardware.audiohalext-utils.so"],
+		},
+		android_arm64: {
+			srcs: ["proprietary/lib64/vendor.qti.hardware.audiohalext-utils.so"],
+		},
+	},
+	compile_multilib: "both",
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libqct_resampler",
+	owner: "oneplus",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/lib/libqct_resampler.so"],
+		},
+	},
+	compile_multilib: "32",
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
 	name: "libgpustats",
 	owner: "oneplus",
 	strip: {
@@ -58,121 +91,38 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-	name: "libthermalclient",
+	name: "vendor.qti.hardware.audiohalext@1.0",
 	owner: "oneplus",
 	strip: {
 		none: true,
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary/vendor/lib/libthermalclient.so"],
+			srcs: ["proprietary/product/lib/vendor.qti.hardware.audiohalext@1.0.so"],
 		},
 		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libthermalclient.so"],
+			srcs: ["proprietary/product/lib64/vendor.qti.hardware.audiohalext@1.0.so"],
 		},
 	},
 	compile_multilib: "both",
 	prefer: true,
-	soc_specific: true,
+	product_specific: true,
 }
 
 android_app_import {
-	name: "QtiTelephonyService",
+	name: "workloadclassifier",
 	owner: "oneplus",
-	apk: "proprietary/app/QtiTelephonyService/QtiTelephonyService.apk",
+	apk: "proprietary/app/workloadclassifier/workloadclassifier.apk",
 	certificate: "platform",
 	dex_preopt: {
 		enabled: false,
 	},
-}
-
-android_app_import {
-	name: "SoterService",
-	owner: "oneplus",
-	apk: "proprietary/app/SoterService/SoterService.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-}
-
-android_app_import {
-	name: "datastatusnotification",
-	owner: "oneplus",
-	apk: "proprietary/app/datastatusnotification/datastatusnotification.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-}
-
-android_app_import {
-	name: "embms",
-	owner: "oneplus",
-	apk: "proprietary/app/embms/embms.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-}
-
-android_app_import {
-	name: "imssettings",
-	owner: "oneplus",
-	apk: "proprietary/app/imssettings/imssettings.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-}
-
-android_app_import {
-	name: "uceShimService",
-	owner: "oneplus",
-	apk: "proprietary/app/uceShimService/uceShimService.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-}
-
-android_app_import {
-	name: "IFAAService",
-	owner: "oneplus",
-	apk: "proprietary/priv-app/IFAAService/IFAAService.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	privileged: true,
 }
 
 android_app_import {
 	name: "WfdService",
 	owner: "oneplus",
 	apk: "proprietary/priv-app/WfdService/WfdService.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	privileged: true,
-}
-
-android_app_import {
-	name: "com.qualcomm.location",
-	owner: "oneplus",
-	apk: "proprietary/priv-app/com.qualcomm.location/com.qualcomm.location.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	privileged: true,
-}
-
-android_app_import {
-	name: "qcrilmsgtunnel",
-	owner: "oneplus",
-	apk: "proprietary/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk",
 	certificate: "platform",
 	dex_preopt: {
 		enabled: false,
@@ -206,11 +156,44 @@ android_app_import {
 	name: "TimeService",
 	owner: "oneplus",
 	apk: "proprietary/vendor/app/TimeService/TimeService.apk",
-	certificate: ":timeservice_app_cert-legacy-um",
+	certificate: "platform",
 	dex_preopt: {
 		enabled: false,
 	},
 	soc_specific: true,
+}
+
+android_app_import {
+	name: "CallFeaturesSetting",
+	owner: "oneplus",
+	apk: "proprietary/product/app/CallFeaturesSetting/CallFeaturesSetting.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "DeviceInfo",
+	owner: "oneplus",
+	apk: "proprietary/product/app/DeviceInfo/DeviceInfo.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "DynamicDDSService",
+	owner: "oneplus",
+	apk: "proprietary/product/app/DynamicDDSService/DynamicDDSService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
 }
 
 android_app_import {
@@ -221,6 +204,161 @@ android_app_import {
 	dex_preopt: {
 		enabled: false,
 	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "QtiSystemService",
+	owner: "oneplus",
+	apk: "proprietary/product/app/QtiSystemService/QtiSystemService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "QtiTelephonyService",
+	owner: "oneplus",
+	apk: "proprietary/product/app/QtiTelephonyService/QtiTelephonyService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "SimSettings",
+	owner: "oneplus",
+	apk: "proprietary/product/app/SimSettings/SimSettings.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "atfwd",
+	owner: "oneplus",
+	apk: "proprietary/product/app/atfwd/atfwd.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "datastatusnotification",
+	owner: "oneplus",
+	apk: "proprietary/product/app/datastatusnotification/datastatusnotification.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "embms",
+	owner: "oneplus",
+	apk: "proprietary/product/app/embms/embms.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "imssettings",
+	owner: "oneplus",
+	apk: "proprietary/product/app/imssettings/imssettings.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "remotesimlockservice",
+	owner: "oneplus",
+	apk: "proprietary/product/app/remotesimlockservice/remotesimlockservice.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "uceShimService",
+	owner: "oneplus",
+	apk: "proprietary/product/app/uceShimService/uceShimService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "uimgbaservice",
+	owner: "oneplus",
+	apk: "proprietary/product/app/uimgbaservice/uimgbaservice.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "uimlpaservice",
+	owner: "oneplus",
+	apk: "proprietary/product/app/uimlpaservice/uimlpaservice.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "uimremoteclient",
+	owner: "oneplus",
+	apk: "proprietary/product/app/uimremoteclient/uimremoteclient.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "uimremoteserver",
+	owner: "oneplus",
+	apk: "proprietary/product/app/uimremoteserver/uimremoteserver.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "QAS_DVC_MSP",
+	owner: "oneplus",
+	apk: "proprietary/product/priv-app/QAS_DVC_MSP/QAS_DVC_MSP.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
 	product_specific: true,
 }
 
@@ -248,9 +386,45 @@ android_app_import {
 	product_specific: true,
 }
 
+android_app_import {
+	name: "qcrilmsgtunnel",
+	owner: "oneplus",
+	apk: "proprietary/product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+	product_specific: true,
+}
+
+dex_import {
+	name: "QPerformance",
+	owner: "oneplus",
+	jars: ["proprietary/framework/QPerformance.jar"],
+}
+
+dex_import {
+	name: "UxPerformance",
+	owner: "oneplus",
+	jars: ["proprietary/framework/UxPerformance.jar"],
+}
+
 dex_import {
 	name: "WfdCommon",
 	owner: "oneplus",
 	jars: ["proprietary/framework/WfdCommon.jar"],
+}
+
+dex_import {
+	name: "qcnvitems",
+	owner: "oneplus",
+	jars: ["proprietary/framework/qcnvitems.jar"],
+}
+
+dex_import {
+	name: "tcmclient",
+	owner: "oneplus",
+	jars: ["proprietary/framework/tcmclient.jar"],
 }
 
