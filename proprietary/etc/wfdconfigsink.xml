@@ -266,7 +266,7 @@
                 SINGLETOUCH           BIT2
                 MULTITOUCH            BIT3
                 JOYSTICK              BIT4
-                CAMERA                BIT5
+                UIBC_CAMERA                BIT5
                 GESTURE               BIT6
                 REMOTECONTROL         BIT7
                 -->
@@ -796,10 +796,5 @@
     <StreamingSupport>1</StreamingSupport>
 
     <Cursor>0</Cursor>
-
-    <!--
-        Video Decoder Input Custom Limit Buffer Size Mode
-    -->
-    <VideoCustomSizeMode>1</VideoCustomSizeMode>
 
 </WFDConfig>
